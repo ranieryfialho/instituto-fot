@@ -2,7 +2,8 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Home } from "@/routes/Home"; // Vamos criar este arquivo em breve
+import { Home } from "@/routes/Home";
+import { Toaster } from "@/components/ui/toaster"; // 1. Importe o Toaster
 
 function App() {
   return (
@@ -12,10 +13,10 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* No futuro, outras páginas como /sobre e /contato serão adicionadas aqui */}
           </Routes>
         </main>
         <Footer />
+        <Toaster /> {/* 2. Adicione o Toaster aqui */}
       </div>
     </Router>
   );
