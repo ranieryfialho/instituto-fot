@@ -1,4 +1,5 @@
-"use client" 
+// src/sections/Contact.jsx
+"use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -16,9 +17,8 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/hooks/use-toast" // <-- CORREÇÃO APLICADA AQUI
 
-// Schema de validação do formulário
 const formSchema = z.object({
   name: z.string().min(2, {
     message: "O nome deve ter pelo menos 2 caracteres.",
@@ -43,7 +43,6 @@ export const Contact = () => {
     },
   })
 
-  // Função chamada no envio do formulário
   function onSubmit(values) {
     console.log("Dados do formulário:", values)
     toast({
@@ -54,14 +53,13 @@ export const Contact = () => {
   }
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section id="contato" className="py-16 md:py-24 bg-white">
       <div className="container grid lg:grid-cols-2 gap-16 items-start">
-        {/* Coluna do Mapa */}
         <div>
           <SectionTitle title="Visite o Instituto F.O.T." />
           <div className="mt-6 rounded-xl overflow-hidden shadow-lg">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.332362590211!2d-38.48395182449079!3d-3.738670144410668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c7461971431671%3A0x4a37f596317b209e!2sR.%20Felipe%20Nery%2C%201012%20-%20Guararapes%2C%20Fortaleza%20-%20CE%2C%2060810-020!5e0!3m2!1spt-BR!2sbr!4v1723814881261!5m2!1spt-BR!2sbr"
+              src="http://googleusercontent.com/maps.google.com/2"
               width="100%"
               height="450"
               style={{ border: 0 }}
@@ -72,7 +70,6 @@ export const Contact = () => {
           </div>
         </div>
 
-        {/* Coluna do Formulário */}
         <div>
           <SectionTitle title="Entre em contato conosco" />
           <Form {...form}>
