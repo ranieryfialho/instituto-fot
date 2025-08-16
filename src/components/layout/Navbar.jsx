@@ -1,42 +1,29 @@
-// src/components/layout/Navbar.jsx
 import { useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X, Calendar } from 'lucide-react';
 import { AppButton } from '@/components/common/AppButton';
-import { useScrollToSection } from '@/hooks/useScrollToSection';
 import logo from '@/assets/logo.jpg';
 
 const navigationItems = [
-  { id: 'home', title: 'Início', href: '/', sectionId: 'hero' },
-  { id: 'about', title: 'Sobre', href: '/sobre', sectionId: 'sobre' },
-  { id: 'tracking', title: 'Acompanhamento', href: '/acompanhamento', sectionId: 'acompanhamento' },
-  { id: 'testimonials', title: 'Depoimentos', href: '/depoimentos', sectionId: 'depoimentos' },
-  { id: 'contact', title: 'Contato', href: '/contato', sectionId: 'contato' },
+  { id: 'home', title: 'Início', sectionId: 'hero' },
+  { id: 'about', title: 'Sobre', sectionId: 'sobre' },
+  { id: 'tracking', title: 'Acompanhamento', sectionId: 'acompanhamento' },
+  { id: 'testimonials', title: 'Depoimentos', sectionId: 'depoimentos' },
+  { id: 'contact', title: 'Contato', sectionId: 'contato' },
 ];
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
-  const { scrollToSection } = useScrollToSection();
 
-  // Função para lidar com a navegação
-  const handleNavigation = (item) => {
-    setIsOpen(false); // Fecha o menu mobile
-    
-    // Se já estamos na página inicial, apenas faz scroll
-    if (location.pathname === '/') {
-      scrollToSection(item.sectionId);
-    } else {
-      // Se estamos em outra "rota", navega para ela (que renderizará a Home) 
-      // e o useScrollToSection fará o scroll automaticamente
-      navigate(item.href);
+  // Função para fazer scroll suave até a seção
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
-  };
-
-  // Função para verificar se o item está ativo
-  const isActiveItem = (item) => {
-    return location.pathname === item.href;
+    setIsOpen(false); // Fecha o menu mobile
   };
 
   return (
@@ -44,7 +31,7 @@ export const Navbar = () => {
       <div className="container flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
         <button 
-          onClick={() => handleNavigation(navigationItems[0])}
+          onClick={() => scrollToSection('hero')}
           className="flex items-center gap-3 cursor-pointer"
         >
           <img src={logo} alt="Logo Instituto FOT" className="h-10 w-10" />
@@ -58,12 +45,8 @@ export const Navbar = () => {
           {navigationItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => handleNavigation(item)}
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                isActiveItem(item) 
-                  ? 'text-brand-600 font-semibold' 
-                  : 'text-muted-foreground'
-              }`}
+              onClick={() => scrollToSection(item.sectionId)}
+              className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground"
             >
               {item.title}
             </button>
@@ -75,7 +58,7 @@ export const Navbar = () => {
           <AppButton 
             size="sm" 
             className="hidden md:inline-flex"
-            onClick={() => handleNavigation(navigationItems.find(item => item.id === 'contact'))}
+            onClick={() => scrollToSection('contato')}
           >
             <Calendar className="w-4 h-4 mr-2" />
             Agendar Consulta
@@ -97,19 +80,15 @@ export const Navbar = () => {
             {navigationItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => handleNavigation(item)}
-                className={`text-sm font-medium text-left ${
-                  isActiveItem(item) 
-                    ? 'text-brand-600 font-semibold' 
-                    : 'text-muted-foreground'
-                }`}
+                onClick={() => scrollToSection(item.sectionId)}
+                className="text-sm font-medium text-left text-muted-foreground"
               >
                 {item.title}
               </button>
             ))}
             <AppButton 
               className="w-full mt-2"
-              onClick={() => handleNavigation(navigationItems.find(item => item.id === 'contact'))}
+              onClick={() => scrollToSection('contato')}
             >
               <Calendar className="w-4 h-4 mr-2" />
               Agendar Consulta

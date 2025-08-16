@@ -1,30 +1,24 @@
 // src/components/layout/Footer.jsx
-import { useNavigate, useLocation } from 'react-router-dom';
-import { useScrollToSection } from '@/hooks/useScrollToSection';
 import logo from '@/assets/logo.jpg';
 
 export const Footer = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const { scrollToSection } = useScrollToSection();
-
   // Links de navegação do footer
   const footerLinks = [
-    { title: 'Início', href: '/', sectionId: 'hero' },
-    { title: 'Sobre', href: '/sobre', sectionId: 'sobre' },
-    { title: 'Acompanhamento', href: '/acompanhamento', sectionId: 'acompanhamento' },
-    { title: 'Depoimentos', href: '/depoimentos', sectionId: 'depoimentos' },
-    { title: 'Contato', href: '/contato', sectionId: 'contato' },
+    { title: 'Início', sectionId: 'hero' },
+    { title: 'Sobre', sectionId: 'sobre' },
+    { title: 'Acompanhamento', sectionId: 'acompanhamento' },
+    { title: 'Depoimentos', sectionId: 'depoimentos' },
+    { title: 'Contato', sectionId: 'contato' },
   ];
 
-  // Função para lidar com a navegação do footer
-  const handleFooterNavigation = (item) => {
-    // Se já estamos na página inicial, apenas faz scroll
-    if (location.pathname === '/') {
-      scrollToSection(item.sectionId);
-    } else {
-      // Navega para a rota e o hook fará o scroll automaticamente
-      navigate(item.href);
+  // Função para fazer scroll suave
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
   };
 
@@ -52,7 +46,7 @@ export const Footer = () => {
               {footerLinks.map((link) => (
                 <li key={link.sectionId}>
                   <button 
-                    onClick={() => handleFooterNavigation(link)}
+                    onClick={() => scrollToSection(link.sectionId)}
                     className="text-brand-300 hover:text-white transition-colors text-left"
                   >
                     {link.title}
@@ -94,7 +88,7 @@ export const Footer = () => {
           <p className="mt-1">
             Desenvolvido com 🧠 por{' '}
             <button 
-              onClick={() => handleFooterNavigation(footerLinks[0])}
+              onClick={() => scrollToSection('hero')}
               className="hover:text-white transition-colors"
             >
               Rafi Dev

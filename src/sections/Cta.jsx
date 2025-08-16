@@ -1,8 +1,15 @@
+// src/sections/Cta.jsx
 import { Calendar, ArrowRight, Phone } from 'lucide-react';
 import { AppButton } from '@/components/common/AppButton';
-import { Link } from 'react-router-dom';
 
 export const Cta = () => {
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative bg-brand-gradient text-white overflow-hidden">
       <div 
@@ -26,14 +33,12 @@ export const Cta = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <AppButton 
               size="lg"
-              asChild
               className="bg-white text-brand-700 hover:bg-white/90 shadow-lg transform hover:scale-105 transition-transform"
+              onClick={() => scrollToSection('contato')}
             >
-              <Link to="/agendar">
-                <Calendar className="mr-2 h-5 w-5" />
-                Agendar Consulta
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+              <Calendar className="mr-2 h-5 w-5" />
+              Agendar Consulta
+              <ArrowRight className="ml-2 h-4 w-4" />
             </AppButton>
             
             <AppButton 

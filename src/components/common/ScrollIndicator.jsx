@@ -1,17 +1,15 @@
 // src/components/common/ScrollIndicator.jsx
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 
 export const ScrollIndicator = () => {
   const [activeSection, setActiveSection] = useState('hero');
-  const location = useLocation();
 
   const sections = [
-    { id: 'hero', name: 'Início', href: '/' },
-    { id: 'sobre', name: 'Sobre', href: '/sobre' },
-    { id: 'acompanhamento', name: 'Acompanhamento', href: '/acompanhamento' },
-    { id: 'depoimentos', name: 'Depoimentos', href: '/depoimentos' },
-    { id: 'contato', name: 'Contato', href: '/contato' },
+    { id: 'hero', name: 'Início' },
+    { id: 'sobre', name: 'Sobre' },
+    { id: 'acompanhamento', name: 'Acompanhamento' },
+    { id: 'depoimentos', name: 'Depoimentos' },
+    { id: 'contato', name: 'Contato' },
   ];
 
   useEffect(() => {
@@ -34,13 +32,15 @@ export const ScrollIndicator = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Atualiza a seção ativa quando a rota muda (para navegação direta)
-  useEffect(() => {
-    const sectionFromRoute = sections.find(section => section.href === location.pathname);
-    if (sectionFromRoute) {
-      setActiveSection(sectionFromRoute.id);
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
-  }, [location.pathname]);
+  };
 
   return (
     <div className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:block">
@@ -53,12 +53,7 @@ export const ScrollIndicator = () => {
                 ? 'scale-125' 
                 : 'hover:scale-110'
             }`}
-            onClick={() => {
-              document.getElementById(section.id)?.scrollIntoView({ 
-                behavior: 'smooth',
-                block: 'start'
-              });
-            }}
+            onClick={() => scrollToSection(section.id)}
           >
             {/* Indicador visual */}
             <div

@@ -1,7 +1,7 @@
+// src/sections/About.jsx
 import { CheckCircle, ArrowRight } from 'lucide-react';
 import { AppButton } from '@/components/common/AppButton';
 import aboutImage from '@/assets/about-orthopedics.jpg';
-import { Link } from 'react-router-dom';
 
 const highlights = [
   'Experiência e Cuidado Humanizado',
@@ -10,6 +10,13 @@ const highlights = [
 ];
 
 export const About = () => {
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="bg-slate-50/70 py-16 md:py-24">
       <div className="container">
@@ -53,11 +60,13 @@ export const About = () => {
             
             {/* Botão de Ação */}
             <div className="pt-4">
-              <AppButton asChild variant="outline" className="group text-brand-600">
-                <Link to="/sobre">
-                  Saiba Mais
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
+              <AppButton 
+                variant="outline" 
+                className="group text-brand-600"
+                onClick={() => scrollToSection('contato')}
+              >
+                Saiba Mais
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </AppButton>
             </div>
           </div>
