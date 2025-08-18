@@ -39,7 +39,7 @@ export const About = () => {
               SOBRE NÓS
             </div>
             
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-ink leading-tight">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-600 leading-tight">
               Somos Especializados em 
               <span className="text-brand-600"> Cuidado Ortopédico</span>
             </h2>

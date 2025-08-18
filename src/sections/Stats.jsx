@@ -42,7 +42,7 @@ export const Stats = () => {
   return (
     <section className="bg-white py-16 md:py-24">
       <div className="container text-center">
-        <h2 className="text-3xl md:text-4xl font-display font-bold text-ink">
+        <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-600">
           Quem Somos
         </h2>
         <div className="mt-4 w-16 h-1 bg-brand-500 mx-auto" />

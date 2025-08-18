@@ -17,7 +17,7 @@ export const Hero = () => {
             </Badge>
 
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-6xl font-display font-extrabold text-ink leading-tight tracking-tighter">
+              <h1 className="text-4xl md:text-6xl font-display font-extrabold text-gray-600 leading-tight tracking-tighter">
                 Inove Seu Tratamento {' '}
                 <span className="bg-gradient-to-r from-brand-500 to-brand-600 bg-clip-text text-transparent">
                   Osteomuscular
