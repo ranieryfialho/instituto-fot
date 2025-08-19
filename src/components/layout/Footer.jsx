@@ -91,7 +91,7 @@ export const Footer = () => {
               onClick={() => scrollToSection('hero')}
               className="hover:text-white transition-colors"
             >
-              Rafi Dev
+              Rafi Web
             </button>
           </p>
         </div>
