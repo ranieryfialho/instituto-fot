@@ -10,6 +10,7 @@ const navigationItems = [
   { id: 'problemas', title: 'Sintomas', sectionId: 'problemas' },
   { id: 'diferenciais', title: 'Diferenciais', sectionId: 'diferenciais' },
   { id: 'metodo', title: 'Método', sectionId: 'metodo' },
+  { id: 'especialistas', title: 'Nosso Time', sectionId: 'especialistas' },
   { id: 'depoimentos', title: 'Depoimentos', sectionId: 'depoimentos' },
   { id: 'contato', title: 'Contato', sectionId: 'contato' },
 ];

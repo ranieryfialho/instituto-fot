@@ -42,20 +42,10 @@ export const Contact = () => {
 
   function onSubmit(values) {
     const phoneNumber = "5585981240678"; 
-
     const formattedMessage = `Olá, Instituto FOT! 👋\n\nMeu nome é *${values.name}*.\n\n*Email:* ${values.email}\n\n*Mensagem:*\n${values.message}`;
-    
     const encodedMessage = encodeURIComponent(formattedMessage);
-    
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-    
     window.open(whatsappUrl, '_blank');
-
-    toast({
-      title: "Quase lá!",
-      description: "Abra o WhatsApp para finalizar o envio da sua mensagem.",
-    })
-    form.reset()
   }
 
   return (

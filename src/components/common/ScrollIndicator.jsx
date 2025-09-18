@@ -1,3 +1,4 @@
+// src/components/common/ScrollIndicator.jsx (Versão Corrigida)
 import { useState, useEffect, useRef } from 'react';
 
 export const ScrollIndicator = () => {
@@ -10,7 +11,8 @@ export const ScrollIndicator = () => {
     { id: 'diferenciais', name: 'Diferenciais' },
     { id: 'metodo', name: 'Método' },
     { id: 'beneficios', name: 'Benefícios' },
-    { id: 'depoimentos', name: 'Depoimentos' },
+    { id: 'especialistas', name: 'Nosso Time' },
+    { id: 'galeria', name: 'Galeria' },
     { id: 'contato', name: 'Contato' },
   ];
 
@@ -19,16 +21,28 @@ export const ScrollIndicator = () => {
       observer.current.disconnect();
     }
 
-    observer.current = new IntersectionObserver(
-      (entries) => {
-        const intersectingEntry = entries.find((entry) => entry.isIntersecting);
-        if (intersectingEntry) {
-          setActiveSection(intersectingEntry.target.id);
-        }
-      },
+    const observerCallback = (entries) => {
+      // Ordena as entradas por posição na tela
+      const sortedEntries = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => {
+          const aTop = a.boundingClientRect.top;
+          const bTop = b.boundingClientRect.top;
+          return Math.abs(aTop) - Math.abs(bTop);
+        });
 
-      { rootMargin: '-40% 0px -40% 0px' }
-    );
+      if (sortedEntries.length > 0) {
+        // Pega a seção mais próxima do topo
+        const closestEntry = sortedEntries[0];
+        setActiveSection(closestEntry.target.id);
+      }
+    };
+
+    observer.current = new IntersectionObserver(observerCallback, {
+      // Margem mais flexível para melhor detecção
+      rootMargin: "-20% 0px -60% 0px",
+      threshold: [0, 0.25, 0.5, 0.75, 1],
+    });
 
     const currentObserver = observer.current;
 
@@ -53,6 +67,8 @@ export const ScrollIndicator = () => {
         behavior: 'smooth',
         block: 'start'
       });
+      // Força a atualização do estado ativo
+      setActiveSection(sectionId);
     }
   };
 
@@ -72,10 +88,11 @@ export const ScrollIndicator = () => {
             <div
               className={`w-3 h-3 rounded-full border-2 transition-all duration-300 ${
                 activeSection === section.id
-                  ? 'bg-brand-500 border-brand-500'
+                  ? 'bg-brand-500 border-brand-500' // Verde quando ativo
                   : 'bg-transparent border-brand-300 hover:border-brand-500'
               }`}
             />
+            
             <div className="absolute right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
               <div className="bg-brand-800 text-white text-xs py-1 px-3 rounded-lg whitespace-nowrap">
                 {section.name}

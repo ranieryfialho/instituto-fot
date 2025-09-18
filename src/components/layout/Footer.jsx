@@ -1,17 +1,12 @@
-// src/components/layout/Footer.jsx
 import logo from '@/assets/logo.jpg';
 
 export const Footer = () => {
-  // Links de navegação do footer
   const footerLinks = [
-    { title: 'Início', sectionId: 'hero' },
-    { title: 'Sobre', sectionId: 'sobre' },
-    { title: 'Acompanhamento', sectionId: 'acompanhamento' },
-    { title: 'Depoimentos', sectionId: 'depoimentos' },
-    { title: 'Contato', sectionId: 'contato' },
+    { title: 'Sintomas', sectionId: 'problemas' },
+    { title: 'Método', sectionId: 'metodo' },
+    { title: 'Galeria', sectionId: 'galeria' },
   ];
 
-  // Função para fazer scroll suave
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -25,8 +20,8 @@ export const Footer = () => {
   return (
     <footer className="bg-brand-900 text-white">
       <div className="container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Logo e Info */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
           <div className="md:col-span-1">
             <div className="flex items-center gap-3">
               <img src={logo} alt="Logo Instituto FOT" className="h-10 w-10 bg-white p-1 rounded-md" />
@@ -39,7 +34,6 @@ export const Footer = () => {
             </p>
           </div>
 
-          {/* Links Rápidos */}
           <div>
             <h4 className="font-semibold tracking-wider uppercase mb-4">Navegação</h4>
             <ul className="space-y-2 text-sm">
@@ -56,31 +50,19 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Contato */}
           <div>
             <h4 className="font-semibold tracking-wider uppercase mb-4">Contato</h4>
             <address className="space-y-2 text-sm not-italic text-brand-300">
-              <p>Av. Santos Dumont, 5753 - Aldeota</p>
-              <p>Fortaleza, CE, 60150-165</p>
+              <p>Rua Felipe Nery, 1012 - Guararapes</p>
+              <p>Fortaleza, CE, 60810-310</p>
               <p className="pt-2">
-                <a href="tel:8512345678" className="hover:text-white transition-colors">
-                  (85) 1234-5678
+                <a href="tel:85981191467" className="hover:text-white transition-colors">
+                  (85) 98119-1467
                 </a>
               </p>
             </address>
           </div>
 
-          {/* Horários */}
-          <div>
-            <h4 className="font-semibold tracking-wider uppercase mb-4">Horários</h4>
-            <div className="space-y-2 text-sm text-brand-300">
-              <p>Segunda a Sexta:</p>
-              <p className="ml-2">7h às 18h</p>
-              <p>Sábado:</p>
-              <p className="ml-2">8h às 12h</p>
-              <p className="text-brand-100 mt-2">Emergências 24h</p>
-            </div>
-          </div>
         </div>
 
         <div className="mt-8 pt-8 border-t border-brand-700 text-center text-xs text-brand-400">

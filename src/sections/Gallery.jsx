@@ -15,7 +15,7 @@ export const Gallery = () => {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -32,7 +32,10 @@ export const Gallery = () => {
         >
           <CarouselContent className="-ml-4">
             {galleryImages.map((image) => (
-              <CarouselItem key={image.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+              <CarouselItem
+                key={image.id}
+                className="pl-4 md:basis-1/2 lg:basis-1/3"
+              >
                 <Card className="overflow-hidden rounded-2xl shadow-md">
                   <CardContent className="p-0 aspect-[4/3]">
                     <img
@@ -50,14 +53,18 @@ export const Gallery = () => {
         </Carousel>
 
         <div className="mt-12 text-center">
-          <AppButton 
-            size="lg" 
-            className="group"
-            onClick={() => scrollToSection('contato')}
+          <a
+            href="https://api.whatsapp.com/send/?phone=5585981191467&text=Ol%C3%A1%21+Vim+do+site+do+Instituto+FOT+e+gostaria+de+marcar+uma+consulta&type=phone_number&app_absent=0"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            QUERO AGENDAR UMA AVALIAÇÃO
-            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-          </AppButton>
+            <AppButton size="lg" className="group" asChild>
+              <div>
+                QUERO AGENDAR UMA AVALIAÇÃO
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </div>
+            </AppButton>
+          </a>
         </div>
       </div>
     </section>
