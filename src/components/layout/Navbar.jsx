@@ -1,14 +1,17 @@
+// src/components/layout/Navbar.jsx (Modificado)
 import { useState } from 'react';
 import { Menu, X, Calendar } from 'lucide-react';
 import { AppButton } from '@/components/common/AppButton';
 import logo from '@/assets/logo.jpg';
 
+// Array de navegação ATUALIZADO
 const navigationItems = [
   { id: 'home', title: 'Início', sectionId: 'hero' },
-  { id: 'about', title: 'Sobre', sectionId: 'sobre' },
-  { id: 'tracking', title: 'Acompanhamento', sectionId: 'acompanhamento' },
-  { id: 'testimonials', title: 'Depoimentos', sectionId: 'depoimentos' },
-  { id: 'contact', title: 'Contato', sectionId: 'contato' },
+  { id: 'problemas', title: 'Sintomas', sectionId: 'problemas' },
+  { id: 'diferenciais', title: 'Diferenciais', sectionId: 'diferenciais' },
+  { id: 'metodo', title: 'Método', sectionId: 'metodo' },
+  { id: 'depoimentos', title: 'Depoimentos', sectionId: 'depoimentos' },
+  { id: 'contato', title: 'Contato', sectionId: 'contato' },
 ];
 
 export const Navbar = () => {

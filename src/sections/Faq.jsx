@@ -1,4 +1,3 @@
-// src/sections/Faq.jsx
 import {
   Accordion,
   AccordionContent,

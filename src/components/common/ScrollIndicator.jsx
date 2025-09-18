@@ -1,35 +1,49 @@
-// src/components/common/ScrollIndicator.jsx
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export const ScrollIndicator = () => {
   const [activeSection, setActiveSection] = useState('hero');
+  const observer = useRef(null);
 
   const sections = [
     { id: 'hero', name: 'Início' },
-    { id: 'sobre', name: 'Sobre' },
-    { id: 'acompanhamento', name: 'Acompanhamento' },
+    { id: 'problemas', name: 'Sintomas' },
+    { id: 'diferenciais', name: 'Diferenciais' },
+    { id: 'metodo', name: 'Método' },
+    { id: 'beneficios', name: 'Benefícios' },
     { id: 'depoimentos', name: 'Depoimentos' },
     { id: 'contato', name: 'Contato' },
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 100; // Offset para ativação antecipada
+    if (observer.current) {
+      observer.current.disconnect();
+    }
 
-      // Encontra a seção ativa baseada na posição do scroll
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i].id);
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i].id);
-          break;
+    observer.current = new IntersectionObserver(
+      (entries) => {
+        const intersectingEntry = entries.find((entry) => entry.isIntersecting);
+        if (intersectingEntry) {
+          setActiveSection(intersectingEntry.target.id);
         }
+      },
+
+      { rootMargin: '-40% 0px -40% 0px' }
+    );
+
+    const currentObserver = observer.current;
+
+    sections.forEach((section) => {
+      const element = document.getElementById(section.id);
+      if (element) {
+        currentObserver.observe(element);
+      }
+    });
+
+    return () => {
+      if (currentObserver) {
+        currentObserver.disconnect();
       }
     };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Verifica inicialmente
-
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToSection = (sectionId) => {
@@ -55,7 +69,6 @@ export const ScrollIndicator = () => {
             }`}
             onClick={() => scrollToSection(section.id)}
           >
-            {/* Indicador visual */}
             <div
               className={`w-3 h-3 rounded-full border-2 transition-all duration-300 ${
                 activeSection === section.id
@@ -63,8 +76,6 @@ export const ScrollIndicator = () => {
                   : 'bg-transparent border-brand-300 hover:border-brand-500'
               }`}
             />
-            
-            {/* Tooltip com nome da seção */}
             <div className="absolute right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
               <div className="bg-brand-800 text-white text-xs py-1 px-3 rounded-lg whitespace-nowrap">
                 {section.name}

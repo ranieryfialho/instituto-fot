@@ -1,41 +1,44 @@
-// src/routes/Home.jsx
-import { Hero } from '@/sections/Hero';
-import { About } from '@/sections/About';
-import { Stats } from '@/sections/Stats';
-import { Tracking } from '@/sections/Tracking';
-import { Testimonials } from '@/sections/Testimonials';
-import { OurDoctors } from '@/sections/OurDoctors';
-import { Gallery } from '@/sections/Gallery';
-import { Faq } from '@/sections/Faq';
-import { Cta } from '@/sections/Cta';
-import { Contact } from '@/sections/Contact';
+import { Hero } from "@/sections/Hero";
+import { PainPoints } from "@/sections/PainPoints";
+import { Authority } from "@/sections/Authority";
+import { Method } from "@/sections/Method";
+import { Benefits } from "@/sections/Benefits";
+import { Gallery } from "@/sections/Gallery";
+import { Testimonials } from "@/sections/Testimonials";
+import { Contact } from "@/sections/Contact";
 
 export const Home = () => {
   return (
     <>
-      {/* Cada seção agora tem um ID único para navegação */}
       <section id="hero">
         <Hero />
       </section>
-      
-      <section id="sobre">
-        <About />
-        <Stats />
+
+      <section id="problemas">
+        <PainPoints />
       </section>
-      
-      <section id="acompanhamento">
-        <Tracking />
-        <OurDoctors />
+
+      <section id="diferenciais">
+        <Authority />
+      </section>
+
+      <section id="metodo">
+        <Method />
+      </section>
+
+      <section id="beneficios">
+        <Benefits />
+      </section>
+
+      <section id="galeria">
         <Gallery />
       </section>
-      
+
       <section id="depoimentos">
         <Testimonials />
-        <Faq />
       </section>
-      
+
       <section id="contato">
-        <Cta />
         <Contact />
       </section>
     </>
