@@ -1,8 +1,7 @@
-// src/sections/Benefits.jsx
 import { Check } from 'lucide-react';
 import { SectionTitle } from '@/components/common/SectionTitle';
 import { benefits } from '@/data/benefits';
-import heroImage from '@/assets/hero-orthopedics.jpg';
+import imgPaciente from '@/assets/img-paciente.JPG';
 
 export const Benefits = () => {
   return (
@@ -33,9 +32,9 @@ export const Benefits = () => {
           </div>
 
           <div className="relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-lg h-[500px]">
+            <div className="relative rounded-3xl overflow-hidden shadow-lg h-[700px]">
               <img
-                src={heroImage}
+                src={imgPaciente}
                 alt="Paciente recuperado realizando atividade física"
                 className="w-full h-full object-cover"
               />

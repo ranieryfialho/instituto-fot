@@ -1,7 +1,7 @@
 import { CheckCircle } from 'lucide-react';
 import { SectionTitle } from '@/components/common/SectionTitle';
 import { differentials } from '@/data/differentials';
-import aboutImage from '@/assets/about-orthopedics.jpg';
+import aboutImage from '@/assets/ATENDIMENTO-DR-FELIPE-E-DR-ROBERTO.png';
 
 export const Authority = () => {
   return (
