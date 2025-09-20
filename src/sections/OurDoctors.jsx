@@ -1,4 +1,3 @@
-// src/sections/OurDoctors.jsx (Setas Corrigidas para Mobile)
 import * as React from "react";
 import { Calendar, Award, Clock, ArrowRight, Star } from "lucide-react";
 import {
@@ -25,16 +24,24 @@ const DoctorCard = ({ doctor }) => {
           />
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-          {/* Botão de Ação no Hover */}
           <div className="absolute bottom-4 left-4 right-4 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-            <AppButton
-              size="sm"
-              className="w-full bg-white/90 text-brand-600 hover:bg-white backdrop-blur-sm"
+            <a 
+              href="https://api.whatsapp.com/send/?phone=5585981191467&text=Ol%C3%A1%21+Vim+do+site+do+Instituto+FOT+e+gostaria+de+marcar+uma+consulta&type=phone_number&app_absent=0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full"
             >
-              <Calendar className="w-4 h-4 mr-2" />
-              Agendar Consulta
-            </AppButton>
+              <AppButton
+                size="sm"
+                className="w-full bg-white/90 text-brand-600 hover:bg-white backdrop-blur-sm"
+                asChild
+              >
+                <div>
+                  <Calendar className="w-4 h-4 mr-2" />
+                  Agendar Consulta
+                </div>
+              </AppButton>
+            </a>
           </div>
         </div>
 
@@ -111,7 +118,7 @@ const SpecialtyCarousel = ({ specialty, specialists }) => {
           ))}
         </CarouselContent>
 
-        {/* Controles Personalizados com Classes Responsivas */}
+        {/* Controles Personalizados */}
         <CarouselPrevious className="left-4 md:left-[-50px] w-12 h-12 bg-white shadow-lg border-2 border-brand-100 hover:border-brand-300 hover:bg-brand-50 transition-all duration-300" />
         <CarouselNext className="right-4 md:right-[-50px] w-12 h-12 bg-white shadow-lg border-2 border-brand-100 hover:border-brand-300 hover:bg-brand-50 transition-all duration-300" />
       </Carousel>

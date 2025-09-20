@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { AppButton } from "@/components/common/AppButton";
-import heroImage from "@/assets/hero-orthopedics.jpg";
+import heroImage from '@/assets/gallery/SALA-DE-ATENDIMENTO-1.png';
 
 export const Hero = () => {
   return (
