@@ -9,4 +9,11 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+
+  build: {
+    manifest: true,
+    rollupOptions: {
+      input: path.resolve(__dirname, 'src/main.jsx'),
+    },
+  },
 })

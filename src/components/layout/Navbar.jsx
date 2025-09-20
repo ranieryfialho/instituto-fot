@@ -1,8 +1,7 @@
-// src/components/layout/Navbar.jsx (Corrigido)
 import { useState } from 'react';
 import { Menu, X, Calendar } from 'lucide-react';
 import { AppButton } from '@/components/common/AppButton';
-import logo from '@/assets/logo.jpg';
+import { asset } from '@/lib/utils/asset';
 
 const navigationItems = [
   { id: 'home', title: 'Início', sectionId: 'hero' },
@@ -36,7 +35,7 @@ export const Navbar = () => {
           onClick={() => scrollToSection('hero')}
           className="flex items-center gap-3 cursor-pointer"
         >
-          <img src={logo} alt="Logo Instituto FOT" className="h-10 w-10" />
+          <img src={asset('/logo.jpg')} alt="Logo Instituto FOT" className="h-10 w-10" />
           {/* As classes 'hidden' e 'sm:inline' foram removidas da linha abaixo */}
           <span className="font-display text-xl font-bold text-ink">
             Instituto <span className="text-brand-600">FOT</span>
