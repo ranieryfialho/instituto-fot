@@ -1,33 +1,27 @@
-import imgSalaEsp1 from '@/assets/gallery/SALA-DE-ESPERA.png';
-import imgSalaEsp2 from '@/assets/gallery/SALA-DE-ESPERA-2.png';
-import imgSalaAtend from '@/assets/gallery/SALA-DE-ATENDIMENTO-1.png';
-import imgAreaTrei from '@/assets/gallery/AREA-TREINAMENTO.png';
-import imgAreaFisio from '@/assets/gallery/AREA-FISIOTERAPIA.png';
-
 export const galleryImages = [
   {
     id: 1,
-    src: imgSalaEsp1,
+    src: 'gallery/SALA-DE-ESPERA.png',
     alt: 'Sala de Espera Instituto FOT',
   },
   {
     id: 2,
-    src: imgSalaEsp2,
+    src: 'gallery/SALA-DE-ESPERA-2.png',
     alt: 'Sala de Espera Instituto FOT',
   },
   {
     id: 3,
-    src: imgSalaAtend,
+    src: 'gallery/SALA-DE-ATENDIMENTO-1.png',
     alt: 'Sala de Atendimento Instituto FOT',
   },
   {
     id: 4,
-    src: imgAreaTrei,
+    src: 'gallery/AREA-TREINAMENTO.png',
     alt: 'Area de Treinamento Instituto FOT',
   },
   {
     id: 5,
-    src: imgAreaFisio,
+    src: 'gallery/AREA-FISIOTERAPIA.png',
     alt: 'Area de Fisioterapia Instituto FOT',
   },
 ];

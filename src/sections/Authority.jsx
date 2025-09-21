@@ -1,7 +1,7 @@
 import { CheckCircle } from 'lucide-react';
 import { SectionTitle } from '@/components/common/SectionTitle';
 import { differentials } from '@/data/differentials';
-import aboutImage from '@/assets/ATENDIMENTO-DR-FELIPE-E-DR-ROBERTO.png';
+import { asset } from '@/lib/utils/asset';
 
 export const Authority = () => {
   return (
@@ -12,7 +12,7 @@ export const Authority = () => {
           <div className="relative">
             <div className="relative rounded-3xl overflow-hidden shadow-lg">
               <img
-                src={aboutImage}
+                src={asset('ATENDIMENTO-DR-FELIPE-E-DR-ROBERTO.png')}
                 alt="Equipe de médicos especialistas do Instituto FOT"
                 className="w-full h-[500px] object-cover"
               />

@@ -1,7 +1,7 @@
 import { Check } from 'lucide-react';
 import { SectionTitle } from '@/components/common/SectionTitle';
 import { benefits } from '@/data/benefits';
-import imgPaciente from '@/assets/img-paciente.JPG';
+import { asset } from '@/lib/utils/asset';
 
 export const Benefits = () => {
   return (
@@ -34,7 +34,7 @@ export const Benefits = () => {
           <div className="relative">
             <div className="relative rounded-3xl overflow-hidden shadow-lg h-[700px]">
               <img
-                src={imgPaciente}
+                src={asset('img-paciente.JPG')}
                 alt="Paciente recuperado realizando atividade física"
                 className="w-full h-full object-cover"
               />

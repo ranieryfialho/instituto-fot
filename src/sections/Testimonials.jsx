@@ -1,4 +1,3 @@
-// src/sections/Testimonials.jsx (Modificado para usar a tag <video>)
 import * as React from "react";
 import { PlayCircle } from "lucide-react";
 import {
@@ -16,6 +15,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionTitle } from "@/components/common/SectionTitle";
 import { testimonials } from "@/data/testimonials";
+import { asset } from "@/lib/utils/asset";
 
 export const Testimonials = () => {
   const [selectedVideoUrl, setSelectedVideoUrl] = React.useState(null);
@@ -43,7 +43,7 @@ export const Testimonials = () => {
                       <CardContent className="p-0">
                         <div className="relative">
                           <img 
-                            src={testimonial.thumbnail} 
+                            src={asset(testimonial.thumbnail)} 
                             alt={`Thumbnail do depoimento de ${testimonial.name}`}
                             className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
                           />

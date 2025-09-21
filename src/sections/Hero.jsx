@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { AppButton } from "@/components/common/AppButton";
-import heroImage from '@/assets/gallery/SALA-DE-ATENDIMENTO-1.png';
+import { asset } from "@/lib/utils/asset";
 
 export const Hero = () => {
   return (
@@ -41,7 +41,7 @@ export const Hero = () => {
           <div className="relative hidden lg:block">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[600px]">
               <img
-                src={heroImage}
+                src={asset('gallery/SALA-DE-ATENDIMENTO-1.png')}
                 alt="Médico ortopedista examinando o joelho de um paciente"
                 className="w-full h-full object-cover"
               />

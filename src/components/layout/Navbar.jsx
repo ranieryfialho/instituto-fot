@@ -30,19 +30,16 @@ export const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm">
       <div className="container flex items-center justify-between h-16 md:h-20">
-        {/* Logo */}
         <button 
           onClick={() => scrollToSection('hero')}
           className="flex items-center gap-3 cursor-pointer"
         >
-          <img src={asset('/logo.jpg')} alt="Logo Instituto FOT" className="h-10 w-10" />
-          {/* As classes 'hidden' e 'sm:inline' foram removidas da linha abaixo */}
+          <img src={asset('logo.jpg')} alt="Logo Instituto FOT" className="h-10 w-10" />
           <span className="font-display text-xl font-bold text-ink">
             Instituto <span className="text-brand-600">FOT</span>
           </span>
         </button>
 
-        {/* Menu Desktop */}
         <nav className="hidden md:flex items-center gap-6">
           {navigationItems.map((item) => (
             <button
@@ -55,7 +52,6 @@ export const Navbar = () => {
           ))}
         </nav>
 
-        {/* CTAs e Menu Mobile Toggle */}
         <div className="flex items-center gap-2 sm:gap-4">
           <AppButton 
             size="sm" 
@@ -75,7 +71,6 @@ export const Navbar = () => {
         </div>
       </div>
 
-      {/* Menu Mobile */}
       {isOpen && (
         <div className="md:hidden border-t border-border/40">
           <nav className="flex flex-col gap-4 p-4">

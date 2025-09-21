@@ -1,4 +1,4 @@
-import logo from "@/assets/logo.jpg";
+import { asset } from "@/lib/utils/asset";
 
 export const Footer = () => {
   const footerLinks = [
@@ -24,7 +24,7 @@ export const Footer = () => {
           <div className="md:col-span-1">
             <div className="flex items-center gap-3">
               <img
-                src={logo}
+                src={asset('logo.jpg')}
                 alt="Logo Instituto FOT"
                 className="h-10 w-10 bg-white p-1 rounded-md"
               />
@@ -80,7 +80,7 @@ export const Footer = () => {
             reservados.
           </p>
           <p className="mt-1">
-            Desenvolvido com 🧠 por{" "}
+            Desenvolvido por{" "}
             <a
               href="https://rafiweb.com.br/"
               target="_blank"

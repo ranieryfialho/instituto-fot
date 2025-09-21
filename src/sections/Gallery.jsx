@@ -10,15 +10,9 @@ import {
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { galleryImages } from "@/data/gallery";
+import { asset } from "@/lib/utils/asset";
 
 export const Gallery = () => {
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <section className="bg-slate-50/70 py-16 md:py-24">
       <div className="container">
@@ -39,7 +33,7 @@ export const Gallery = () => {
                 <Card className="overflow-hidden rounded-2xl shadow-md">
                   <CardContent className="p-0 aspect-[4/3]">
                     <img
-                      src={image.src}
+                      src={asset(image.src)}
                       alt={image.alt}
                       className="w-full h-full object-cover"
                     />

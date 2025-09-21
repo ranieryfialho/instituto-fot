@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Calendar, Award, Clock, ArrowRight, Star } from "lucide-react";
+import { Calendar } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -10,19 +10,18 @@ import {
 import { SectionTitle } from "@/components/common/SectionTitle";
 import { AppButton } from "@/components/common/AppButton";
 import { doctors } from "@/data/doctors";
+import { asset } from "@/lib/utils/asset";
 
 const DoctorCard = ({ doctor }) => {
   return (
     <div className="group relative p-1">
       <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg">
-        {/* Imagem com Overlay */}
         <div className="relative overflow-hidden">
           <img
-            src={doctor.image}
+            src={asset(doctor.image)}
             alt={`Foto de ${doctor.name}`}
             className="w-full aspect-square object-cover object-top transition-transform duration-700 group-hover:scale-110"
           />
-          {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <div className="absolute bottom-4 left-4 right-4 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
             <a 
@@ -45,16 +44,13 @@ const DoctorCard = ({ doctor }) => {
           </div>
         </div>
 
-        {/* Conteúdo do Card */}
         <div className="p-6 space-y-4">
-          {/* Nome e Especialidade */}
           <div className="text-center space-y-2">
             <h4 className="text-xl font-bold text-gray-800 group-hover:text-brand-600 transition-colors duration-300">
               {doctor.name}
             </h4>
           </div>
 
-          {/* Especialidades */}
           {doctor.specialties && (
             <div className="pt-3 border-t border-gray-100">
               <div className="flex flex-wrap gap-2 justify-center">
@@ -80,7 +76,6 @@ const DoctorCard = ({ doctor }) => {
   );
 };
 
-// --- Sub-componente para o Carrossel de Especialidade ---
 const SpecialtyCarousel = ({ specialty, specialists }) => {
   const [api, setApi] = React.useState();
   const [current, setCurrent] = React.useState(0);
@@ -97,7 +92,6 @@ const SpecialtyCarousel = ({ specialty, specialists }) => {
 
   return (
     <div className="group">
-      {/* Título da Especialidade com Animação */}
       <div className="text-center mb-8">
         <div className="inline-flex items-center space-x-3 p-4 bg-gradient-to-r from-brand-50 to-blue-50 rounded-2xl shadow-sm group-hover:shadow-md transition-shadow duration-300">
           <div className="w-3 h-3 bg-gradient-to-r from-brand-500 to-blue-500 rounded-full"></div>
@@ -108,7 +102,6 @@ const SpecialtyCarousel = ({ specialty, specialists }) => {
         </div>
       </div>
 
-      {/* Carrossel */}
       <Carousel setApi={setApi} className="w-full max-w-md mx-auto">
         <CarouselContent>
           {specialists.map((doctor) => (
@@ -118,12 +111,10 @@ const SpecialtyCarousel = ({ specialty, specialists }) => {
           ))}
         </CarouselContent>
 
-        {/* Controles Personalizados */}
         <CarouselPrevious className="left-4 md:left-[-50px] w-12 h-12 bg-white shadow-lg border-2 border-brand-100 hover:border-brand-300 hover:bg-brand-50 transition-all duration-300" />
         <CarouselNext className="right-4 md:right-[-50px] w-12 h-12 bg-white shadow-lg border-2 border-brand-100 hover:border-brand-300 hover:bg-brand-50 transition-all duration-300" />
       </Carousel>
 
-      {/* Indicadores Modernos */}
       <div className="flex gap-2 mt-6 justify-center">
         {specialists.map((_, index) => (
           <button
@@ -142,9 +133,7 @@ const SpecialtyCarousel = ({ specialty, specialists }) => {
   );
 };
 
-// --- Componente Principal ---
 export const OurDoctors = () => {
-  // Agrupa os doutores por especialidade
   const doctorsBySpecialty = doctors.reduce((acc, doctor) => {
     if (!acc[doctor.specialty]) {
       acc[doctor.specialty] = [];
@@ -158,12 +147,10 @@ export const OurDoctors = () => {
       id="especialistas"
       className="relative bg-gradient-to-br from-slate-50 via-white to-blue-50/30 py-20 md:py-28 overflow-hidden"
     >
-      {/* Elementos Decorativos de Fundo */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-brand-100/30 to-transparent rounded-full -translate-x-32 -translate-y-32"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-blue-100/30 to-transparent rounded-full translate-x-48 translate-y-48"></div>
 
       <div className="container relative z-10">
-        {/* Título da Seção */}
         <div className="text-center mb-16">
           <SectionTitle
             title="Conheça nosso time de especialistas"
@@ -171,7 +158,6 @@ export const OurDoctors = () => {
           />
         </div>
 
-        {/* Grid de Especialidades */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
           {Object.entries(doctorsBySpecialty).map(
             ([specialty, specialists]) => (
