@@ -7,7 +7,7 @@ export const doctors = [
   },
   {
     id: 2,
-    name: 'Ft. Roberto Monteiro',
+    name: 'Dr. Roberto Monteiro',
     specialty: 'Fisioterapeuta',
     image: 'doctors/img-roberto.png',
   },
