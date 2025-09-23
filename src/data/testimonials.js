@@ -20,12 +20,53 @@ export const testimonials = [
     videoUrl: 'https://institutofot.com.br/wp-content/uploads/2024/01/TEREZA.mp4',
     thumbnail: 'testimonials/tereza.png',
   },
-
   {
     id: 4,
     name: 'Jean e Leane',
     role: 'Pacientes de Fisioterapia',
     videoUrl: 'https://institutofot.com.br/wp-content/uploads/2024/01/JEAN-E-LEANE.mp4',
     thumbnail: 'testimonials/jean.png',
-  }
+  },
+  {
+    id: 5,
+    name: 'Cenira',
+    role: 'Paciente de Cirurgia',
+    videoUrl: 'https://institutofot.com.br/wp-content/uploads/2025/09/paciente-cenira.mp4',
+    thumbnail: 'testimonials/paciente-cenira.png',
+  },
+  {
+    id: 5,
+    name: 'Clóvis Girão',
+    role: 'Paciente com Dores na Lombar',
+    videoUrl: 'https://institutofot.com.br/wp-content/uploads/2025/09/paciente-cenira.mp4',
+    thumbnail: 'testimonials/clovis-girao.png',
+  },
+  {
+    id: 6,
+    name: 'Henrique',
+    role: 'Paciente com Dores na Lombar',
+    videoUrl: 'https://institutofot.com.br/wp-content/uploads/2025/09/paciente-henrique.mp4',
+    thumbnail: 'testimonials/paciente-henrique.png',
+  },
+  {
+    id: 7,
+    name: 'Ingrid',
+    role: 'Paciente com Dores no Joelho',
+    videoUrl: 'https://institutofot.com.br/wp-content/uploads/2025/09/paciente-ingrid.mp4',
+    thumbnail: 'testimonials/paciente-ingrid.png',
+  },
+  {
+    id: 8,
+    name: 'Marcos',
+    role: 'Paciente com Dores',
+    videoUrl: 'https://institutofot.com.br/wp-content/uploads/2025/09/paciente-marcos.mp4',
+    thumbnail: 'testimonials/paciente-marcos.png',
+  },
+  {
+    id: 9,
+    name: 'Cosmo',
+    role: 'Paciente com rombipmento no LCA',
+    videoUrl: 'https://institutofot.com.br/wp-content/uploads/2025/09/paciente-cosmo.mp4',
+    thumbnail: 'testimonials/paciente-cosmo.png',
+  },
 ];
